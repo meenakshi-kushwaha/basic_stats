@@ -4,7 +4,7 @@ Tutorial in progress for statistical concepts for my team. The context here is a
 * Code is in R
 * Presentation in xaringan
 * All (the amazing) Artwork by @allison_horst
-View slides here https://statconcepts.netlify.app/#1
+View slides here https://basicstats.netlify.app
 
 Future topics to cover
 * Linear mixed effects models
