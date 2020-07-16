@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Statistical Concepts</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Meenakshi Kushwaha" />
+    <link href="stats_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="stats_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Statistical Concepts
+## Using some artwork
+### Meenakshi Kushwaha
+### ILK Labs, Bangalore
+### 2020/06/13 (updated: 2020-07-16)
+
+---
+
+class:center, middle
+
+# Artwork by @allison_horst
+## https://github.com/allisonhorst/stats-illustrations
+
+
+---
+name:index
+## [Session 1](#Session1): Introduction
+## [Session 2](#Session2): Simple Linear Regressin &amp; Diagnostic plots
+## [Session 3](#Session3): Deming Regression
+## [Session 4](#Session4): Moving Averages 
+## Session 5: TBD
+
+???
+hyperlink the slides
+---
+class:middle, center
+name: Session1
+# Session1
+## 26th June 2020
+## t test, p values, and multiple linear regression with dragons!
+---
+#p-value
+![pvalue0](images/pvalue5.jpeg)
+---
+#p-value
+![pvalue6](images/pvalue6.jpeg)
+---
+#p-value
+![pvalue7](images/pvalue7.jpeg)
+---
+#p-value
+
+![pvalue1](images/pvalue1.jpeg)
+---
+#p-value
+![pvalue1](images/pvalue2.jpeg)
+---
+#p-value
+![pvalue1](images/pvalue3.jpeg)
+---
+#p-value
+![pvalue4](images/pvalue4.jpeg)
+
+---
+# (Simple) Linear Regression
+- Dependent variable (y)
+- Independent variable (x)  
+
+
+![scatter](images/scatter.png)
+
+
+
+
+---
+# Multiple linear regression
+
+### Instead of, x----&gt;y
+   - Example : RH----&gt;PM2.5
+
+### x1, x2, x3.... ----&gt;y
+  - Example: RH, Temperature, Season, Wind speed ----&gt; PM2.5
+
+Assumption?
+
+---
+class:middle, center
+# Dependent variable (y) should be continous
+---
+class:middle, center
+# Multiple linear regression
+
+
+![dragons](images/dragons.png)
+
+---
+class:center, middle
+Interpret coefficients for continous predictor variables
+
+![continous variables](images/dragons_continuous.png)
+---
+
+class:middle, center
+Categorical variables
+
+![categorical variables](images/dragon_regression.png)
+
+---
+
+#Making predictions
+![prediction](images/dragon_predict_mlr.png)
+---
+# Residuals
+![residuals](images/dragon_residual.png)
+---
+# Are residuals normal?
+
+![residual distribution](images/dragon_residual_distribution.png)
+
+---
+class:middle, center
+# End of Session 1
+---
+class: middle, center
+name: Session2
+# Session 2
+### Simple Linear Regression
+### 4th July 2020
+---
+# Simple Linear Regression
+
+- We referred to slides from Allison Horst https://bit.ly/2NXHtUD
+  - slides 11-41
+- We covered how to do diagnostics on simple linear regression models
+- In R use `plot()` function to generate diagonostic plots
+- QQ plot https://www.youtube.com/watch?v=okjYjClSjOg
+
+
+### !!! ALWAYS look at your data !!!
+---
+class:middle, center
+# End of Session 2
+---
+name: Session3
+# Session 3
+### Deming Regression
+### 11th July 2020
+
+
+
+
+---
+# Assumptions for Simple Linear Regression 
+- X axis is free of error
+- We regress Y on X for callibration equation
+- We use X to predict Y
+- What if both X and Y have some error
+  - Example, Atmos vs Purple air
+  - i.e. we can't consider X as a reference
+  
+---
+
+![recap](images/ah_residual.png)
+
+
+
+Source: Allison Horst Lectures
+---
+ 
+![deming1](images/deming1.png)
+
+
+.footnote[AAAR-Volken-Apte-Tutorial]
+
+---
+# Deming regression in R
+- Use packages `deming` or `mcr`
+- If both X and Y are subject to different analytical variability we need to provide an error ratio for X vs Y
+
+
+---
+class:middle, center
+# End of Session 3
+---
+name: Session4
+#Sesson 4 
+### Moving averages
+### 17th July 2020
+
+![ma cartoon](images/ma_cartoon.png)
+
+.footnote[source:https://www.storybench.org/how-to-calculate-a-rolling-average-in-r/ ]
+---
+# Moving averages
+### Rolling or moving averages are a way to reduce noise in time series data
+- Type of smoothing technique
+- Every value is smoothed by incorporating information from data in adjacent timepoints
+- Other smoothing techniques
+  - local regression (loess)
+---
+![MA illustration](images/39-rolling-averages.png)
+
+---
+# How do I?
+- Specify the window = no. of points to be averaged 
+  - 7 day moving average
+  - 8 hour moving average
+- which time window to use is a judgment call
+  - you want more clarity without losing important data
+- Some variations
+  - centered vs trailing
+---
+# openair Package
+Use function `rollingMean()`
+```r
+
+rollingMean(mydata, pollutant = "PM10", hours = 8) 
+
+```
+
+---
+![fl](images/fl_new_cases.png)
+---
+class: middle, center
+![facet](images/fct_us_cvd.png)
+---
+# Smoothing using `loess`
+- local regression, default method for `ggplot()`
+--
+![loess](images/loess-animation.gif)
+.footnote[Introduction to data science, e-book by *Rafael A. Irizarry*]
+---
+
+class: middle, center
+#End of Session 4
+
+.footnote[Deep dive:
+http://www2.stat.duke.edu/~banks/218-lectures.dir/dmlect2.pdf]
+---
+class:middle, center
+
+![you can do it](images/code_hero_rstats.png)
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
