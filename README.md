@@ -1,4 +1,4 @@
-# Basic statistical for AQ, Bangalore team
+# Basic statistical concepts for my team
 
 Tutorial in progress for statistical concepts for my team. The context here is air quality data analysis but these concepts have universal application.
 * Code is in R
