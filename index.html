@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 ## Using some artwork
 ### Meenakshi Kushwaha
 ### ILK Labs, Bangalore
-### 2020/06/13 (updated: 2020-07-16)
+### 2020/06/13 (updated: 2020-07-24)
 
 ---
 
@@ -31,7 +31,7 @@ name:index
 ## [Session 2](#Session2): Simple Linear Regressin &amp; Diagnostic plots
 ## [Session 3](#Session3): Deming Regression
 ## [Session 4](#Session4): Moving Averages 
-## Session 5: TBD
+## [Session 5](#Session5): Normal Distribution
 
 ???
 hyperlink the slides
@@ -239,6 +239,138 @@ class: middle, center
 
 .footnote[Deep dive:
 http://www2.stat.duke.edu/~banks/218-lectures.dir/dmlect2.pdf]
+---
+name: Session5
+#Session 5
+### Normal Distribution 
+### 24th July 2020
+![teacups](teacups.png)
+.footnote[https://tinystats.github.io/teacups-giraffes-and-statistics]
+---
+# Collect Data
+![measure](images/measure_giraffe.png)
+![island](images/island.png)
+---
+#Visualize the data
+https://tinystats.github.io/teacups-giraffes-and-statistics/02_bellCurve.html
+--
+
+![histogram](images/hist.png)
+---
+.pull-left[
+# Distribution
+- All the values in your dataset
+- How often each value occurs
+- Shape, center, and amount of variability in the data
+]
+--
+.pull-right[
+# Normal Disribution
+- There is a single peak
+- The mass of the distribution is at its center
+- There is symmetry about the center line
+]
+--
+![normal disribution](images/normal_dist.png)
+---
+#Mean, Median, Mode
+###Measures of centrality
+When the data are normally distributed the median and the mean will be very close to each other
+
+When your data are **not normally** distributed the **median** is a more appropriate measure of centrality  
+--
+
+.center[
+![median](images/median.gif)
+]
+---
+# Calculating the mean
+`\begin{equation}
+ \tag{1}
+ \Large{\bar{x}} = \frac{x_1 + x_2 + ... + x_n}{n}
+ \end{equation}  
+ 
+
+ \begin{equation}
+ \tag{2}
+ \Large{\bar{x}} = \frac{\sum_{i=1}^{n}{x_i}}{n}
+ \end{equation}
+
+--
+ ![equation](images/equation.png)
+---
+#Measure of spread
+![spread](images/Range.png)
+"If we want to avoid undue influence of outliers for the measure of spread, the range is not good enough to provide us with a wholistic, robust measure."
+---
+#Variance
+![bells_variance](images/bells_variance.png)
+
+"variance gives us an idea of how similar observations are to one another, and to the average value"
+---
+# Calculating population variance
+
+- Deviation: Distance from mean (x-mu)
+- Sum of squares
+- Variance 
+![variance](images/variance.png)
+- Standard Deviation
+![sd](images/sd.png)
+
+---
+# Sum of squares
+![sumofsquares](images/sumofsquares.gif)
+---
+# Sum of squares
+![sumofsquares2](images/sumofsquares2.png)
+![squares](images/Squares1.png)
+---
+# Calculating Sample variance
+
+\begin{equation} 
+ \tag{variance}
+ \Large s^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}
+ \end{equation}    
+ 
+ \begin{equation}
+ \tag{standard deviation}
+ \Large s = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}
+ \end{equation}
+ 
+---
+#Meaning of standard deviation
+![emperical rule](images/empirical_rule.jpg)
+- The interval created by **1 standard deviation above and below the mean includes 68%** of all the data.
+
+- **2 standard deviations** above and below the mean encompasses approximately **95%** of the data.
+- **3 standard deviations** above and below the mean encompass **99.7%** of the data.
+---
+# Example
+![giraffe_Variance3](images/giraffe_variance3.jpg) 
+---
+#Application
+### How probable it is to find a giraffe smaller than our favorite purple-spotted one?
+- ~1 standard deviation below the mean
+
+- assuming normal distribution
+**what percentage of giraffes will be shorter than the one with purple spots?**
+
+--
+![application](images/Empirical_example.png)
+
+
+---
+class: middle, center
+# Homework
+### We have to correct the calculated variance by dividing by n−1. Why?
+--
+
+Answer - https://tinystats.github.io/teacups-giraffes-and-statistics/04_variance.html
+
+---
+class:center
+# End of Session 5
+![marmalade](images/Marmalade.png)
 ---
 class:middle, center
 
