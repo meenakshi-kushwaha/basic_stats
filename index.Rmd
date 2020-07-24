@@ -232,7 +232,7 @@ name: Session5
 #Session 5
 ### Normal Distribution 
 ### 24th July 2020
-![teacups](teacups.png)
+![teacups](images/teacups.png)
 .footnote[https://tinystats.github.io/teacups-giraffes-and-statistics]
 ---
 # Collect Data
