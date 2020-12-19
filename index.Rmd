@@ -20,6 +20,8 @@ name:index
 ## [Session 3](#Session3): Deming Regression
 ## [Session 4](#Session4): Moving Averages 
 ## [Session 5](#Session5): Normal Distribution
+## [Session 6](#Session6): Standard Error
+## [Session 7](#Session7): Data Transformations
 
 ???
 hyperlink the slides
@@ -228,7 +230,7 @@ class: middle, center
 .footnote[Deep dive:
 http://www2.stat.duke.edu/~banks/218-lectures.dir/dmlect2.pdf]
 ---
-name: Session5
+name: Session
 #Session 5 
 24th July 2020
 ### Normal Distribution 
@@ -360,6 +362,214 @@ class:center
 # End of Session 5
 ![marmalade](images/Marmalade.png)
 ---
+name: Session6
+# Session 6
+### 3rd Dec 2020
+### Standard Error
+.footnote[https://tinystats.github.io/teacups-giraffes-and-statistics]
+
+#### Is the average height of a giraffe on island 1 less than 11cm?
+---
+#Recap
+![](images/island.png)
+![](images/measure_giraffe.png)
+---
+#Recap - Emperical rule
+![](images/empirical_rule.jpg)
+- The entire normal distribution includes 100% of the data.  **1 standard deviation above and below the mean includes 68% of all the data**. 
+
+- **2 standard deviations above and below the mean encompasses approximately 95% of the data**. 
+
+- **3 standard deviations above and below the mean encompass 99.7% of the data**, capturing almost all possible observations in the set. 
+---
+# Sample size and mean 
+- Not all sample means are created equal. 
+- Some are better estimates than others.
+![](images/unnamed-chunk-3-.gif)
+Why do we care about accuracy of a sample estimate?
+???
+because we want to be able to answer questions about the population by making inferences. Statistical inference uses math to draw conclusions about the population based on a subset of the full picture (i.e. a sample). Subsets of data are of course limited, so it’s therefore important to acknowledge that the strength of the conclusions drawn about the population is dependent on the precision of the sample estimate. 
+---
+![](images/Notebooks.jpg)
+---
+# Sampling distribution
+![](images/sampling_distribution.png)
+--
+The range of possible mean values are between 8.9 and 10.7. This means mean values outside of this range are essentially improbable.
+--
+---
+# Sample size
+### What if we sample 500 giraffes instead of 50?
+
+.pull-left[
+![](images/sample_size.png)
+]
+
+--
+
+.pull-right[
+
+- All histograms look normal.
+
+- All distributions have approximately the same mean.
+
+- Higher sample sizes --> lesser disperstion or range of mean values
+
+]
+
+--
+
+---
+class: center
+
+## Summarize the spread of the mean in a single value
+
+--
+
+### Standard error
+
+--
+
+Standard deviation of a sampling distribution.  
+
+--
+  
+Here “standard error” will imply standard error of the mean. But we can technically calculate the standard error of any sample statistic, not just the mean.
+
+--
+---
+# Calculating Standard error of the mean (SEM)
+
+https://tinystats.github.io/teacups-giraffes-and-statistics/06_standardError.html#standard_error_in_practice
+---
+# Confidence Intervals 
+Remember, that the SEM is just the standard deviation of the sampling distribution, so we can apply the empirical rule. As a result, ± 2 SE from a point estimate will capture ~95% of the sampling distribution (exactly, 95.45% of the data). The true value is 1.96 standard deviations–and this is what we use to construct a 95% confidence interval (CI).
+![](images/General_empirical.jpg)
+---
+# Confidence Intervals
+
+### If we were to sample over and over again, then 95% of the time the CIs would contain the true mean.
+
+Importantly, some examples of what the 95% CI does NOT mean are:
+
+--
+
+- A 95% CI does not mean that it contains 95% of the sample data.
+
+--
+
+- A CI is not a definitive range of likely values for the sample statistic, but you can think of it as estimate of likely values for the population parameter.
+
+--
+
+- It does not mean that values outside of the 95% CI have a 5% chance of being the true mean.
+
+--
+
+---
+# Confidence Intervals
+.pull-left[
+![](images/ci1.jpg)
+]
+
+--
+
+.pull-right[
+![](images/ci2.jpg)
+]
+
+.footnote[https://medium.com/@EpiEllie/having-confidence-in-confidence-intervals-8f881712d837]
+---
+class:center
+![](images/BabyInference.jpg)
+---
+name: Session7
+# Session 7
+# Data Transformations
+- ###Log Transformation
+- ###Data Normalization
+
+.footnote[Source:https://online.stat.psu.edu/stat501/lesson/9]
+---
+class:inverse
+#Log Transformation
+- ###What is log transformation
+- ###What are we transforming?
+---
+# Log transformation
+- Natural logarithm 
+  - Denoted by *ln*, *log<sub>e*, or *log* where *e* is the base
+  - where e is the constant 2.718...
+  - For example, the natural logarithm of 5 is the power to which you have to raise e = 2.718282... in order to get 5. Notationally, *ln*(5)=1.60944
+  
+  
+- A logarithm can have different bases (*e*, 2, 10, etc) 
+  - For example  *log<sub>10*(1000) = 3
+  - 10 raised to the power 3 is 1000
+---
+#Log transforming Predictor variable
+- 13 subjects were asked to memorize a list of disconnected items
+- The subjects were then asked to recall the items at various times
+- The proportion of items (y = prop) correctly recalled at various times (x = time, in minutes)
+
+
+![](images/dt1.png)
+---
+### No linear fit. Below is residuals plot
+![](images/dt2.png)
+---
+#Log transforming Predictor variable
+.pull-left[
+![](images/dt_Table.png)
+]
+
+--
+
+.pull-right[
+![](images/dt4.png)
+]
+---
+#Log transforming outcome variable
+- Relationship between birthweight and length of gestation for various mammals
+- Birthweight (x, in kg) is the predictor and the length of gestation (y, in number of days until birth) is the response.
+![](images/dt5.png)
+---
+### no linear relationship. Residuals plot below
+![](images/dt6.png)
+---
+#Log transforming outcome variable
+![](images/dt_Table2.png)
+
+---
+#Log transforming outcome variable
+
+![](images/dt7.png)
+
+---
+class:inverse
+#Data Normalization
+### For comparison across different studies/variables
+### How are we normalizing the data?
+---
+# Few ways to normalize
+- Divide by mean
+- Divide by IQR
+- Divide by Standard deviation
+
+- NOTE
+  - Mention in your analysis and plots if your data is normalized
+  - Keep in mind the transformation when interpreting your results
+  - Normalizing can mean different things in different contexts. Often normalization, rescaling and standardization may be used interchangeably.
+  
+- Further Reading -  TBD 
+  
+---
+class:inverse, middle, center
+# End of Session 7
+### See you in 2021 :)
+---
+
+
 class:middle, center
 
 ![you can do it](images/code_hero_rstats.png)
